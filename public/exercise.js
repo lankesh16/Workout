@@ -35,10 +35,10 @@ initExercise();
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
-  if (workoutType === "cardio") {
+  if (workoutType === "cardiovascular fitness") {
     cardioForm.classList.remove("d-none");
     resistanceForm.classList.add("d-none");
-  } else if (workoutType === "resistance") {
+  } else if (workoutType === "Body Building") {
     resistanceForm.classList.remove("d-none");
     cardioForm.classList.add("d-none");
   } else {
@@ -52,7 +52,7 @@ function handleWorkoutTypeChange(event) {
 function validateInputs() {
   let isValid = true;
 
-  if (workoutType === "resistance") {
+  if (workoutType === "Body Building") {
     if (nameInput.value.trim() === "") {
       isValid = false;
     }
@@ -72,7 +72,7 @@ function validateInputs() {
     if (resistanceDurationInput.value.trim() === "") {
       isValid = false;
     }
-  } else if (workoutType === "cardio") {
+  } else if (workoutType === "cardiovascular fitness") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
     }
@@ -100,13 +100,13 @@ async function handleFormSubmit(event) {
 
   let workoutData = {};
 
-  if (workoutType === "cardio") {
-    workoutData.type = "cardio";
+  if (workoutType === "cardiovascular fitness") {
+    workoutData.type = "cardiovascular fitness";
     workoutData.name = cardioNameInput.value.trim();
     workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
-  } else if (workoutType === "resistance") {
-    workoutData.type = "resistance";
+  } else if (workoutType === "Body Building") {
+    workoutData.type = "cardiovascular";
     workoutData.name = nameInput.value.trim();
     workoutData.weight = Number(weightInput.value.trim());
     workoutData.sets = Number(setsInput.value.trim());
